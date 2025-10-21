@@ -1,0 +1,44 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build
+/build/
+/bin/
+/out/
+
+# Database
+*.db
+*.sqlite
+
+# Misc
+*.tmp
+*.swp
+
+# User-specific
+*.env
+
+# Backup files
+*~
+*.bak
+
+# Test output
+/test-output/
