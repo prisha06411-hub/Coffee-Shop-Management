@@ -11,6 +11,23 @@ package ui;
  */
 public class Main {
     public static void main(String[] args) {
+        // Set modern Look and Feel (FlatLaf if available, else Nimbus)
+        try {
+            // Try FlatLaf first
+            Class.forName("com.formdev.flatlaf.FlatLightLaf");
+            javax.swing.UIManager.setLookAndFeel("com.formdev.flatlaf.FlatLightLaf");
+        } catch (Exception flatlafEx) {
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (Exception nimbusEx) {
+                // If Nimbus is not available, fall back to default
+            }
+        }
         javax.swing.SwingUtilities.invokeLater(() -> {
             new MainMenuUI().main(null); // Launch main menu
         });

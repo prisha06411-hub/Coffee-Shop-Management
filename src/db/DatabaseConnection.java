@@ -17,19 +17,23 @@ public class DatabaseConnection {
     }
 
     private static void initializeDatabase() {
-        String createProducts = "CREATE TABLE IF NOT EXISTS products (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT NOT NULL, " +
-                "price REAL NOT NULL" +
-                ")";
+    String createProducts = "CREATE TABLE IF NOT EXISTS products (" +
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        "name TEXT NOT NULL, " +
+        "price REAL NOT NULL, " +
+        "quantity INTEGER NOT NULL DEFAULT 0" +
+        ")";
 
-        String createSales = "CREATE TABLE IF NOT EXISTS sales (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "product_name TEXT NOT NULL, " +
-                "quantity INTEGER NOT NULL, " +
-                "total REAL NOT NULL, " +
-                "date TEXT NOT NULL" +
-                ")";
+    String createSales = "CREATE TABLE IF NOT EXISTS sales (" +
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        "sale_id TEXT NOT NULL, " +
+        "product_name TEXT NOT NULL, " +
+        "quantity INTEGER NOT NULL, " +
+        "total REAL NOT NULL, " +
+        "date TEXT NOT NULL, " +
+        "customer_name TEXT, " +
+        "customer_number TEXT" +
+        ")";
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
